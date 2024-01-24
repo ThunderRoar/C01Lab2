@@ -1,4 +1,4 @@
-# Simple Todo List
+# MERN Application
 
 
 # Objectives
