@@ -253,7 +253,6 @@ app.patch("/editNote/:noteId", async (req, res) => {
       return res.status(400).json({ error: "Invalid note ID." });
     }
     
-
     const token = req.headers.authorization.split(" ")[1];
     jwt.verify(token, "secret-key", async (err, decoded) => {
       if (err) {
@@ -287,7 +286,7 @@ app.patch("/editNote/:noteId", async (req, res) => {
       if (!updateData || updateData.matchedCount == 0) {
         return res.status(404).json({ error: `Note with ID ${noteId} belonging to the user not found.` })
       }
-      res.json({ response: `Document with ID ${noteId} properly updated`, data: updateData }); // implicit status 200
+      res.json({ response: `Document with ID ${noteId} properly updated` }); // implicit status 200
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
